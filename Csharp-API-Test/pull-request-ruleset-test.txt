@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+
+public static class PullRequestRulesetTest
+{
+    public static List<string> FindMatchingNames(
+        List<string> names,
+        List<string> requestedNames)
+    {
+        var matches = new List<string>();
+
+        foreach (var requestedName in requestedNames)
+        {
+            // This repeatedly scans the entire list and does not handle null input.
+            if (names.Contains(requestedName))
+            {
+                matches.Add(requestedName);
+            }
+        }
+
+        return matches;
+    }
+}
