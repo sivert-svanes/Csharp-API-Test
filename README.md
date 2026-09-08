@@ -104,9 +104,16 @@ curl.exe http://localhost:5069/api/TodoItems/1 `
 
 ## Stack
 
-| Type | Technology | Description |
-|---|---|---|
-| Language | C# | Statically typed language on .NET |
-| Web | ASP.NET Core Controllers | Controller-based Web API framework |
-| ORM | Entity Framework Core | Object-relational mapping for .NET |
-| Database | EF Core In-Memory | Temporary in-memory storage for development and testing |
+| Type            | Technology              | Description       |
+|-----------------|-------------------------|-------------------|
+| Language        | C#                      | Statically typed language on .NET |
+| Web             | ASP.NET Core Controllers | Controller-based Web API framework |
+| Auth            | ASP.NET Identity Core   | It handles the user management side but isn't a token server on its own; for a Web API you typically pair it with JWT bearer authentication                  |                                  
+| Auth**          | OpenIddict              | sits on top of Identity (or your own user store) and adds the actual OAuth2/OIDC endpoints                  |
+| Database        | Postgres                | Just use postgres |
+| Database Driver | Npgsql         | The .NET data provider for PostgreSQL; the underlying driver EF Core uses to talk to Postgres |
+| ORM             | Entity Framework Core   | Object-relational mapping for .NET |
+| Migrations **   | EF Core Migrations          | Built-in schema versioning; generates C# migration files from model changes and applies them |
+| Audit Database ** | Audit.NET         | Library that records who changed what and when, with pluggable storage providers     |
+| Docker          | what can be used        | Description of it |
+
